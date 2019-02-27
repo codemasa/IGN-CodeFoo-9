@@ -1,7 +1,9 @@
 import React from 'react';
 import Helmet from 'react-helmet-async';
 import { Nav, NavLink } from 'react-router-dom';
-
+import { Icon } from 'react-icons-kit'
+import { play, newspaperO } from 'react-icons-kit/fa/'
+import {check} from 'react-icons-kit/metrize/check'
 import styled from 'styled-components';
 const SBDiv = styled.div`
   height: 100%;
@@ -10,7 +12,6 @@ const SBDiv = styled.div`
   justify-content: center;
   align-items: center;
   text-align: left;
-  background-color: #AAEEAA;
   float: left;
 
 
@@ -19,7 +20,9 @@ const SBDiv = styled.div`
 
 const SBTabs = styled(NavLink)`
   padding: 10px;
-  margin: 10px
+  margin-left: 15%;
+  margin-right: 5%;
+
   text-decoration: none;
   font-family: "Arial";
   color: #939194;
@@ -28,7 +31,7 @@ const SBTabs = styled(NavLink)`
   }
   &:hover, &:focus{
     border-radius: 3px;
-    background: #939194;
+    background: #C7C5C8;
     color: #FFFFFF;
 
   }
@@ -40,6 +43,15 @@ const SBTabs = styled(NavLink)`
   }
   display: block;
 `;
+
+const SBLabel = styled.p`
+  display: inline;
+  text-decoration: none;
+  font-family: "Arial";
+
+  padding-left: 20px;
+
+`
 
 class SideBar extends React.Component{
   constructor(props){
@@ -54,15 +66,16 @@ class SideBar extends React.Component{
           <SBTabs
           to="/latest"
           exact activeClassName="active"
-          >Latest</SBTabs>
-          <SBTabs
-          to="/Articles"
-          exact activeClassName="active"
-          >Articles</SBTabs>
+          ><Icon size={25} icon={check}/><SBLabel>Latest</SBLabel></SBTabs>
           <SBTabs
           to="/videos"
           exact activeClassName="active"
-          >Videos</SBTabs>
+          ><Icon size={25} icon={play}/><SBLabel>Videos</SBLabel></SBTabs>
+          <SBTabs
+          to="/articles"
+          exact activeClassName="active"
+          ><Icon size={25} icon={newspaperO}/><SBLabel>Articles</SBLabel></SBTabs>
+
 
       </SBDiv>
     )

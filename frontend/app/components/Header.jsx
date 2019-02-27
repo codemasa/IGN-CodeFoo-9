@@ -3,7 +3,10 @@ import Helmet from 'react-helmet-async';
 import styled from 'styled-components';
 
 const HeaderDiv = styled.div`
-  padding: 50px;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 3%;
+
 `
 const Title = styled.h1`
 

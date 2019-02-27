@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet-async';
-import Contents from './Contents.jsx';
+import Contents from '../components/Contents.jsx';
 
 
 class Latest extends React.Component{
