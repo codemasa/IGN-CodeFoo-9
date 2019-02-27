@@ -1,9 +1,9 @@
 import React from 'react';
 import Helmet from 'react-helmet-async';
-import Contents from './Contents.jsx';
+import Contents from '../components/Contents.jsx';
 
 
-class Articles extends React.Component{
+class Videos extends React.Component{
   constructor(props){
     super(props);
   }
@@ -11,9 +11,10 @@ class Articles extends React.Component{
   render(){
     return(
       <Contents>
-        Articles
+        Videos
+
       </Contents>
     )
   }
 }
-export default Articles;
+export default Videos;
