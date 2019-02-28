@@ -14,10 +14,11 @@ import Videos from './pages/Videos.jsx';
 const Wrapper = styled.div`
     .fade-enter {
       opacity: 0;
+
     }
     .fade-enter-active {
       opacity: 1;
-      transition: opacity 20000ms ease-in;
+      transition: opacity 600ms ease-in;
 
     }
     .fade-exit {
@@ -26,7 +27,7 @@ const Wrapper = styled.div`
 
     .fade-exit-active {
       opacity: 0;
-      transition: opacity 600ms ease-out;
+      transition: opacity 800ms ease-out;
     }
     div.transition-group {
       position: relative;
