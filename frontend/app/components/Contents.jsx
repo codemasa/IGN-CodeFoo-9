@@ -6,7 +6,6 @@ const Contents = styled.div`
   float: right;
   align-items: left;
   text-align: left;
-  background-color: #AAAAEE;
 
 
 `

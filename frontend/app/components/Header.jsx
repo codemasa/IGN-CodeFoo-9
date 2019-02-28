@@ -12,6 +12,10 @@ const Title = styled.h1`
 
 `
 
+const HeaderDivider = styled.hr`
+  margin-bottom: 0;
+`
+
 class Header extends React.Component{
   constructor(props){
     super(props)
@@ -21,7 +25,7 @@ class Header extends React.Component{
     return (
       <HeaderDiv>
         <Title> Latest News </Title>
-        <hr/>
+        <HeaderDivider/>
       </HeaderDiv>
     )
   }

@@ -35,14 +35,13 @@ const Wrapper = styled.div`
     section.route-section {
       position: absolute;
       margin-left: 20%;
-      width: 50%;
+      width: 55%;
       top: 0;
       left: 0;
     }
 `;
 
-function App({location}){
-  return(
+const App = ({location}) => (
   <React.Fragment>
     <GlobalStyles />
     <Header/>
@@ -70,6 +69,6 @@ function App({location}){
 
       </Wrapper>
     </React.Fragment>
-  )
-}
+)
+
 export default withRouter(App);

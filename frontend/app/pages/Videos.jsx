@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet-async';
 import Contents from '../components/Contents.jsx';
+import Video from '../components/Video.jsx';
 
 
 class Videos extends React.Component{
@@ -11,7 +12,9 @@ class Videos extends React.Component{
   render(){
     return(
       <Contents>
-        Videos
+        <Video/>
+        <Video/>
+        <Video/>
 
       </Contents>
     )
