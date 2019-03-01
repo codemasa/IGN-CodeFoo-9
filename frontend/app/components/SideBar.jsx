@@ -6,8 +6,7 @@ import { play, newspaperO } from 'react-icons-kit/fa/'
 import {check} from 'react-icons-kit/metrize/check'
 import styled from 'styled-components';
 const SBDiv = styled.div`
-  height: 100%;
-  min-height: 100vh;
+  margin-top: 0.5em;
   width: 20%;
   justify-content: center;
   align-items: center;
@@ -19,7 +18,7 @@ const SBDiv = styled.div`
 `;
 
 const SBTabs = styled(NavLink)`
-  padding: 10px;
+  padding: .5em;
   margin-left: 15%;
   margin-right: 5%;
 
@@ -66,15 +65,15 @@ class SideBar extends React.Component{
           <SBTabs
           to="/latest"
           exact activeClassName="active"
-          ><Icon size={25} icon={check}/><SBLabel>Latest</SBLabel></SBTabs>
+          ><Icon size="1.5em" icon={check}/><SBLabel>Latest</SBLabel></SBTabs>
           <SBTabs
           to="/videos"
           exact activeClassName="active"
-          ><Icon size={25} icon={play}/><SBLabel>Videos</SBLabel></SBTabs>
+          ><Icon size="1.5em" icon={play}/><SBLabel>Videos</SBLabel></SBTabs>
           <SBTabs
           to="/articles"
           exact activeClassName="active"
-          ><Icon size={25} icon={newspaperO}/><SBLabel>Articles</SBLabel></SBTabs>
+          ><Icon size="1.5em" icon={newspaperO}/><SBLabel>Articles</SBLabel></SBTabs>
 
 
       </SBDiv>

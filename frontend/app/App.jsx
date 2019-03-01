@@ -7,6 +7,8 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import Header from './components/Header.jsx';
 import SideBar from './components/SideBar.jsx';
+
+import Home from './pages/Home.jsx';
 import Latest from './pages/Latest.jsx';
 import Articles from './pages/Articles.jsx';
 import Videos from './pages/Videos.jsx';
@@ -14,10 +16,11 @@ import Videos from './pages/Videos.jsx';
 const Wrapper = styled.div`
     .fade-enter {
       opacity: 0;
+
     }
     .fade-enter-active {
       opacity: 1;
-      transition: opacity 20000ms ease-in;
+      transition: opacity 600ms ease-in;
 
     }
     .fade-exit {
@@ -26,7 +29,7 @@ const Wrapper = styled.div`
 
     .fade-exit-active {
       opacity: 0;
-      transition: opacity 600ms ease-out;
+      transition: opacity 800ms ease-out;
     }
     div.transition-group {
       position: relative;
@@ -35,14 +38,13 @@ const Wrapper = styled.div`
     section.route-section {
       position: absolute;
       margin-left: 20%;
-      width: 50%;
+      width: 55%;
       top: 0;
       left: 0;
     }
 `;
 
-function App({location}){
-  return(
+const App = ({location}) => (
   <React.Fragment>
     <GlobalStyles />
     <Header/>
@@ -60,6 +62,7 @@ function App({location}){
           >
             <section className="route-section">
               <Switch location={location}>
+                <Route exact path="/" component={Home} />
                 <Route path="/latest" component={Latest} />
                 <Route path="/videos" component={Videos} />
                 <Route path="/articles" component={Articles} />
@@ -70,6 +73,6 @@ function App({location}){
 
       </Wrapper>
     </React.Fragment>
-  )
-}
+)
+
 export default withRouter(App);
