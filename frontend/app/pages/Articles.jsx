@@ -12,7 +12,7 @@ class Articles extends React.Component{
   }
 
   componentDidMount(){
-    fetch("https://ign-apis.herokuapp.com/content", {
+    fetch("https://ign-apis.herokuapp.com/content?\u0026count=300", {
       method: "GET",
       mode: "cors",
     })
@@ -23,7 +23,6 @@ class Articles extends React.Component{
 
   render(){
     const data = this.state.data;
-    console.log(data);
 
     return(
       <Contents>
@@ -32,32 +31,10 @@ class Articles extends React.Component{
             if(data.contentType == "video"){
               return null;
             }
-            const ms =(new Date() - new Date(data.metadata.publishDate));
-            const sec = Math.floor((ms/1000) << 0);
-            const min = Math.floor((sec/60) << 0);
-            const hours = Math.floor((min/60) << 0);
-            const days = Math.floor((hours/24) << 0);
-            var uploaded = 0;
-            if(sec < 60){
-              uploaded = sec + "s";
-            }
-            if(min < 60){
-              uploaded = sec + "m";
-            }
-            if(hours < 24){
-              uploaded = sec + "h";
-            }
-            else{
-              uploaded = days + "d";
-            }
-            {console.log(data.thumbnails)}
-
-            return (
-              <Article type={data.contentType}  uploaded={uploaded} description={data.metadata.headline} thumbnail={data.thumbnails}/>
+            return(
+              <Article key={key} data={data}/>
             )
-
           }) : null}
-
       </Contents>
     )
   }

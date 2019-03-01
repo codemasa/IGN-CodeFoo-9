@@ -113,29 +113,79 @@ const PlayIcon = styled.div
 class Article extends React.Component{
   constructor(props){
     super(props);
+    this.state = {
+      duration: null,
+      timePosted: null,
+      commentData: null
+    }
+    this.getDuration = this.getDuration.bind(this);
+    this.getTimePosted = this.getTimePosted.bind(this);
+  }
+
+  componentDidMount(){
+    this.getTimePosted();
+    fetch("https://ign-apis.herokuapp.com/comments?ids="+this.props.data.contentId, {
+      method: "GET",
+      mode: "cors",
+    })
+    .then((response) => response.json())
+    .then((myJson) => this.setState({commentData: myJson}));
+  }
+
+  getDuration(){
+    const sec = Math.floor((this.props.data.metadata.duration) % 60);
+    const min = Math.floor((this.props.data.metadata.duration/60) << 0);
+
+    return min + ":" + sec;
+
+  };
+
+  getTimePosted(){
+    var uploaded = 0;
+    const ms =(new Date() - new Date(this.props.data.metadata.publishDate));
+    const sec = Math.floor((ms/1000) << 0);
+    const min = Math.floor((sec/60) << 0);
+    const hours = Math.floor((min/60) << 0);
+    const days = Math.floor((hours/24) << 0);
+    if(sec < 60){
+      uploaded = sec + "s";
+    }
+    if(min < 60){
+      uploaded = sec + "m";
+    }
+    if(hours < 24){
+      uploaded = sec + "h";
+    }
+    else{
+      uploaded = days + "d";
+    }
+    this.setState({timePosted: uploaded});
   }
 
   render(){
+    const data = this.props.data;
+    const commentData = this.state.commentData;
+    const commentCount = commentData ? commentData.content[0].count : null
     return(
       <Wrapper>
         <Thumbnail>
-          {this.props.type == 'video' ? (<Duration>
+          {data.contentType == 'video' ? (<Duration>
                                           <PlayIcon><Icon size={15} icon={playCircle}/></PlayIcon>
-                                          <Time>{this.props.duration ? this.props.duration : "0:00"}</Time>
+                                          <Time>{data.metadata.duration ? this.getDuration() : "0:00"}</Time>
                                         </Duration>) : null}
-          <ThumbnailImg src={this.props.thumbnail[1].url}/>
+          <ThumbnailImg src={data.thumbnails[1].url}/>
         </Thumbnail>
 
 
         <MetaData>
-          <Uploaded>{this.props.uploaded ? this.props.uploaded : "0m"}  ·</Uploaded>
+          <Uploaded>{this.state.timePosted}  ·</Uploaded>
           <Comments href="/articles"><Icon size={10}icon={commentO}/>
-            <CommentCount>{this.props.commentCount ? this.props.commentCount : null}</CommentCount>
+            <CommentCount>{commentCount > 0 ? commentCount : null} </CommentCount>
           </Comments>
 
         </MetaData>
-        <Description href={this.props.articleLink ? this.props.articleLink : "/articles"}>
-          {this.props.description ? this.props.description : null}
+        <Description href={data.articleLink ? data.articleLink : "/articles"}>
+          {data.metadata.headline ? data.metadata.headline : data.metadata.title}
         </Description>
 
         <Divider/>
