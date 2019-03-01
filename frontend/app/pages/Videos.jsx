@@ -27,6 +27,7 @@ class Videos extends React.Component{
 
     return(
       <Contents>
+        <Helmet><title>Videos</title></Helmet>
         {data ? data.map((data, key) =>
           {
             if(data.contentType == "article"){

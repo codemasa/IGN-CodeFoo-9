@@ -135,6 +135,9 @@ class Article extends React.Component{
   getDuration(){
     const sec = Math.floor((this.props.data.metadata.duration) % 60);
     const min = Math.floor((this.props.data.metadata.duration/60) << 0);
+    if(sec < 10){
+      return min + ":0" + sec
+    }
 
     return min + ":" + sec;
 
@@ -163,6 +166,7 @@ class Article extends React.Component{
   }
 
   render(){
+    console.log(this.props.data);
     const data = this.props.data;
     const commentData = this.state.commentData;
     const commentCount = commentData ? commentData.content[0].count : null

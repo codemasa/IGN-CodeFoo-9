@@ -28,15 +28,8 @@ class Latest extends React.Component{
 
     return(
       <Contents>
-      {data ? data.map((data, key) =>
-        {
-          if(data.contentType == "video"){
-            return null;
-          }
-          return(
-            <Article key={key} data={data}/>
-          )
-        }) : null}
+        <Helmet><title>Latest</title></Helmet>
+        {data ? data.map((data, key) => <Article key={key} data={data}/>): null}
       </Contents>
     )
   }

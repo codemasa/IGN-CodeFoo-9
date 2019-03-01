@@ -7,6 +7,8 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import Header from './components/Header.jsx';
 import SideBar from './components/SideBar.jsx';
+
+import Home from './pages/Home.jsx';
 import Latest from './pages/Latest.jsx';
 import Articles from './pages/Articles.jsx';
 import Videos from './pages/Videos.jsx';
@@ -60,6 +62,7 @@ const App = ({location}) => (
           >
             <section className="route-section">
               <Switch location={location}>
+                <Route exact path="/" component={Home} />
                 <Route path="/latest" component={Latest} />
                 <Route path="/videos" component={Videos} />
                 <Route path="/articles" component={Articles} />
