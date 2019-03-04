@@ -1,5 +1,6 @@
 import sys
 import csv
+import json
 
 class CSVReader:
 
@@ -16,7 +17,22 @@ class CSVReader:
 
 
 
+class CSVWriter:
+
+    def __init__(self, data, file):
+        self.data = data
+        self.jsonFile = file
+
+
+    def writeCSV(self):
+        for line in self.data:
+            with open(self.jsonFile, 'a') as outfile:
+                json.dump(line, outfile)
+
+
+
 if __name__ == "__main__":
     x = CSVReader("./codefoo.csv")
     x.readCSV()
-    print(x.data)
+    y = CSVWriter(x.data, "./output.json")
+    y.writeCSV()
