@@ -1,6 +1,0 @@
-1. Using this CSV (codefoo.csv), build a service to pull/read the content of the file,
-  and store it in a MySQL database. Explain how are you storing, sanitizing,
-  normalizing, and indexing the data.
-
-2. Build a simple service you think would make sense that utilizes your database.
-  Defend your proposals.
