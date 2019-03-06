@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CodeFooApplication</string>
+    <string name="articles">Articles</string>
+    <string name="videos">Videos</string>
+</resources>
